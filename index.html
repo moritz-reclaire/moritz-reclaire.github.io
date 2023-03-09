@@ -1,7 +1,32 @@
 <html>
 <head>
+	<style>
+	img {
+	width: auto;
+	max-height: 500pt;
+			-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+	}
+</style>
 </head>
 <body>
-<img src="pictures/bg.jpeg">
+	<script>
+	function succ(current) {
+		let subString = current.split("img")[1];
+		let num = Number(subString.split(".")[0]);
+		num = (num + 1)%48;
+		let s = ("00000"+num).substr(-5);
+		// document.getElementById("debug").innerHTML = "pictures/img"+s+".jpeg";
+  		return "pictures/img"+s+".jpeg";
+	}
+	</script>
+	<center>
+		<img src="pictures/img00000.jpeg" id="img" onclick='src = succ(src)' width = 40%><br>
+		<!-- <h id="debug">00000</h> -->
+	</center>
 </body>
 </html>
